@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="acm-demo">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- Angular.js  -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-route.min.js"></script>
+        <script src="/javascripts/angularApp.js"></script>
+
+        <title>ACM Demo</title>
+    </head>
+    <body>
+        <div class="container">
+            <div ng-view></div>
+        </div>
+
+        <script type="text/ng-template" id="home.html">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-4"><h1>ACM Demo</h1></div>
+            </div>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Link</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="link in links">
+                        <td>{{$index + 1}}</td>
+                        <td>{{link.name}}</td>
+                        <td><a ng-href="{{link.link}}">{{link.link}}</a></td>
+                        <td><button class="btn btn-warning" ng-click="edit(link)">Edit</button></td>
+                        <td><button class="btn btn-danger" ng-click="delete(link)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="/links">Show the database</a>
+
+            <form ng-submit="addLink()">
+                <h3>Add a new link</h3>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Name" ng-model="name"/>
+
+                    <input type="url" class="form-control" placeholder="Link" ng-model="link"/>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </script>
+    </body>
+</html>
