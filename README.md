@@ -10,13 +10,14 @@ A simple CRUD application that does the following:
 
 ###How to run the application
 * Install the necessary node packages  
-
-	$ npm install  
-	
+```
+$ npm install  
+```	
 * Run MongoDB service  
-
-	$ mongod  
-	
+```
+$ mongod  
+```	
 * Run the whole application  
-
-	$ npm start
+```
+$ npm start
+```
